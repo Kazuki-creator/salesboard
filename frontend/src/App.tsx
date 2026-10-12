@@ -1,6 +1,10 @@
 
 import { useState } from 'react'
 import './App.css'
+import CustomersPage from './CustomersPage'
+import DealsPage from './DealsPage'
+import ActivitiesPage from './ActivitiesPage'
+import ReportsPage from './ReportsPage'
 
 type Page = 'dashboard' | 'customers' | 'deals' | 'activities' | 'reports'
 
@@ -224,6 +228,14 @@ function App() {
                 </div>
               </section>
             </>
+          ) : activePage === 'customers' ? (
+            <CustomersPage />
+          ) : activePage === 'deals' ? (
+            <DealsPage />
+          ) : activePage === 'activities' ? (
+            <ActivitiesPage />
+          ) : activePage === 'reports' ? (
+            <ReportsPage />            
           ) : (
             <div className="page-heading">
               <div>
