@@ -1,5 +1,5 @@
-import SalesBoard from './SalesBoard'
+import Dashboard from './Dashboard'
 
 export default function Home() {
-  return <SalesBoard />
+  return <Dashboard />
 }
