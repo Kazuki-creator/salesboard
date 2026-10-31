@@ -1,0 +1,22 @@
+
+services:
+  db:
+    image: postgres:17
+    container_name: salesboard-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: salesboard
+      POSTGRES_PASSWORD: salesboard_dev_password
+      POSTGRES_DB: salesboard
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U salesboard -d salesboard"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_data:
